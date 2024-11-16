@@ -1,28 +1,62 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
       },
-      colors: {
-        indigo: {
-          100: '#e0e7ff',
-          300: '#a5b4fc',
-          500: '#6366f1',
-          600: '#4f46e5',
-          700: '#4338ca',
-        },
-        purple: {
-          500: '#8b5cf6',
-        },
-      },
     },
   },
   plugins: [require('daisyui')],
   daisyui: {
-    themes: ['light', 'dark'],
+    themes: [
+      {
+        light: {
+          ...require('daisyui/src/theming/themes')['light'],
+          primary: '#4f46e5',
+          'primary-focus': '#4338ca',
+          'primary-content': '#ffffff',
+          secondary: '#8b5cf6',
+          'secondary-focus': '#7c3aed',
+          'secondary-content': '#ffffff',
+          accent: '#37cdbe',
+          'accent-focus': '#2aa79b',
+          'accent-content': '#ffffff',
+          neutral: '#2a2e37',
+          'neutral-focus': '#16181d',
+          'neutral-content': '#ffffff',
+          'base-100': '#ffffff',
+          'base-200': '#f9fafb',
+          'base-300': '#d1d5db',
+          'base-content': '#1f2937',
+        },
+        dark: {
+          ...require('daisyui/src/theming/themes')['dark'],
+          primary: '#6366f1',
+          'primary-focus': '#4f46e5',
+          'primary-content': '#ffffff',
+          secondary: '#9333ea',
+          'secondary-focus': '#7e22ce',
+          'secondary-content': '#ffffff',
+          accent: '#37cdbe',
+          'accent-focus': '#2aa79b',
+          'accent-content': '#ffffff',
+          neutral: '#1f2937',
+          'neutral-focus': '#111827',
+          'neutral-content': '#ffffff',
+          'base-100': '#1f2937',
+          'base-200': '#111827',
+          'base-300': '#374151',
+          'base-content': '#f9fafb',
+        },
+      },
+    ],
+    darkTheme: 'dark',
+    base: true,
+    styled: true,
+    utils: true,
+    prefix: '',
+    logs: false,
   },
 };
