@@ -1,8 +1,9 @@
 import React from 'react'
+import CreateProperty from '../components/CreateProperty'
 
 const CreatePropertyPage = () => {
   return (
-    <div>CreatePropertyPage</div>
+    <div><CreateProperty /></div>
   )
 }
 
