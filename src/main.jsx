@@ -1,33 +1,44 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
 import ErrorPage from './pages/ErrorPage.jsx';
 import PropertyListPage from './pages/PropertyListPage.jsx';
-
-// Import components
 import Layout from './components/Layout';
 import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PropertyDetailPage from './pages/PropertyDetailPage';
+import './index.css';
 
-// Create app component directly in main
-const App = () => {
-  return (
-    <Router>
-      <Layout>
-        <Routes>
-          <Route path='/' element={<HomePage />} />
-          <Route path='/about' element={<AboutPage />} />
-          <Route path='/contact' element={<ContactPage />} />
-          <Route path='/property/:id' element={<PropertyDetailPage />} />
-        </Routes>
-      </Layout>
-    </Router>
-  );
-};
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '/',
+        element: <HomePage />,
+      },
+      {
+        path: '/properties',
+        element: <PropertyListPage />,
+      },
+      {
+        path: '/properties/:id',
+        element: <PropertyDetailPage />,
+      },
+      {
+        path: '/contact',
+        element: <ContactPage />,
+      },
+      {
+        path: '/aboutus',
+        element: <AboutPage />,
+      },
+    ],
+  },
+]);
 
 // Render the app
 createRoot(document.getElementById('root')).render(
