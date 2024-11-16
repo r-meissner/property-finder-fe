@@ -12,6 +12,8 @@ const Header = () => {
     document.documentElement.setAttribute('data-theme', newTheme);
   };
 
+  const token = localStorage.getItem('token');
+
   const navLinks = [
     { to: '/', label: 'Home' },
     { to: '/properties', label: 'Properties' },
@@ -60,12 +62,26 @@ const Header = () => {
             {theme === 'light' ? <Moon className='h-5 w-5' /> : <Sun className='h-5 w-5' />}
           </button>
 
-          <Link
+          {token &&<Link
             to='/new-property'
             className='btn btn-primary hidden md:flex'
           >
             New Property
-          </Link>
+          </Link>}
+
+          {!token &&<Link
+            to='/register'
+            className='btn btn-primary hidden md:flex'
+          >
+            Register
+          </Link>}
+
+          {!token &&<Link
+            to='/login'
+            className='btn btn-primary hidden md:flex'
+          >
+            Login
+          </Link>}
 
           {/* Mobile Menu Button */}
           <button
@@ -94,7 +110,7 @@ const Header = () => {
                   </Link>
                 </li>
               ))}
-              <li>
+              {token && <li>
                 <Link
                   to='/new-property'
                   className='btn btn-primary w-full mt-2'
@@ -102,7 +118,27 @@ const Header = () => {
                 >
                   New Property
                 </Link>
-              </li>
+              </li>}
+              {!token && <>
+                <li>
+                  <Link
+                    to='/register'
+                    className='btn btn-primary w-full mt-2'
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Register
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to='/login'
+                    className='btn btn-primary w-full mt-2'
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Login
+                  </Link>
+                </li>
+              </>}
             </ul>
           </nav>
         </div>

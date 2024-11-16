@@ -220,7 +220,7 @@ const Map = ({ size = 'large' }) => {
     const getAllProperties = async () => {
       try {
         setLoading(true);
-        const res = await fetch(import.meta.env.VITE_API_URL + "properties");
+        const res = await fetch(import.meta.env.VITE_API_URL + "properties?paginated=false");
         const data = await res.json();
 
         if (!ignore) {
