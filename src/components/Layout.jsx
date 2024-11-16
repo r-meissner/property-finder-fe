@@ -1,9 +1,16 @@
-import React from 'react'
-
-const Layout = () => {
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import Hero from './Hero';
+const Layout = ({ children }) => {
   return (
-    <div>Layout</div>
-  )
-}
+    <div className='min-h-screen flex flex-col bg-base-100'>
+      <Header />
+      <Hero />
+      <main className='flex-grow'>{children}</main>
+      <Footer />
+    </div>
+  );
+};
 
-export default Layout
+export default Layout;

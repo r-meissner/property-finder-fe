@@ -1,14 +1,14 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import './index.css';
-import Layout from './components/Layout.jsx';
-import HomePage from './pages/HomePage.jsx';
-import ContactPage from './pages/ContactPage.jsx';
 import ErrorPage from './pages/ErrorPage.jsx';
-import PropertyDetailPage from './pages/PropertyDetailPage.jsx';
-import AboutPage from './pages/AboutPage.jsx';
 import PropertyListPage from './pages/PropertyListPage.jsx';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import PropertyDetailPage from './pages/PropertyDetailPage';
+import './index.css';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +40,7 @@ const router = createBrowserRouter([
   },
 ]);
 
+// Render the app
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
