@@ -8,6 +8,8 @@ import HomePage from './pages/HomePage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PropertyDetailPage from './pages/PropertyDetailPage';
+import EditPropertyPage from './pages/EditPropertyPage.jsx';
+import ListPropertyPage from './pages/ListPropertyPage.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: '/properties/:id',
         element: <PropertyDetailPage />,
+      },
+      {
+        path: '/properties/:id/edit',
+        element: <EditPropertyPage />,
+      },
+      {
+        path: '/new-property',
+        element: <ListPropertyPage />,
       },
       {
         path: '/contact',
