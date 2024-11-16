@@ -46,42 +46,46 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h1>Create a new account</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
-        <label htmlFor='firstName'>First Name</label>
+    <div className='p-4'>
+      <h1 className='text-center text-2xl font-semibold p-4'>Create a new account</h1>
+      <form className='flex flex-col items-center border max-w-fit p-6 mx-auto rounded-2xl' onSubmit={(e) => handleSubmit(e)}>
+        <label className='p-4' htmlFor='firstName'>First Name</label>
         <input
+        className='input input-bordered p-4'
           type='text'
           name='firstName'
           id='firstName'
           onChange={(e) => handleChange(e)}
           value={accountData.firstName}
         />
-        <label htmlFor='lastName'>Last Name</label>
+        <label className='p-4' htmlFor='lastName'>Last Name</label>
         <input
+        className='input input-bordered p-4'
           type='text'
           name='lastName'
           id='lastName'
           onChange={(e) => handleChange(e)}
           value={accountData.lastName}
         />
-        <label htmlFor='email'>E-mail</label>
+        <label className='p-4' htmlFor='email'>E-mail</label>
         <input
+        className='input input-bordered p-4'
           type='email'
           name='email'
           id='email'
           onChange={(e) => handleChange(e)}
           value={accountData.email}
         />
-        <label htmlFor='password'>Password</label>
+        <label className='p-4' htmlFor='password'>Password</label>
         <input
+        className='input input-bordered p-4'
           type='password'
           name='password'
           id='password'
           onChange={(e) => handleChange(e)}
           value={accountData.password}
         />
-        <button type='submit'>Register</button>
+        <button className='btn btn-outline p-4 mt-6' type='submit'>Register</button>
       </form>
     </div>
   );

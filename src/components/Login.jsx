@@ -44,25 +44,28 @@ const Login = () => {
       };
 
   return (
-    <div>
-      <h1>Login to your account</h1>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <div className='m-4'>
+      <h1 className='text-center text-2xl font-semibold p-4'>Login to your account</h1>
+      <form className='flex flex-col items-center border max-w-fit p-6 mx-auto rounded-2xl' onSubmit={(e) => handleSubmit(e)}>
+      <label className='p-4' htmlFor='email'>E-mail</label>
       <input
+       className='input input-bordered p-4'
           type='email'
           name='email'
           id='email'
           onChange={(e) => handleChange(e)}
           value={account.email}
         />
-        <label htmlFor='password'>Password</label>
+        <label className='p-4' htmlFor='password'>Password</label>
         <input
+         className='input input-bordered p-4'
           type='password'
           name='password'
           id='password'
           onChange={(e) => handleChange(e)}
           value={account.password}
         />
-        <button type='submit'>Login</button>
+        <button className='btn btn-outline p-4 mt-6' type='submit'>Login</button>
       </form>
     </div>
   );
