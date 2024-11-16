@@ -12,6 +12,7 @@ import EditPropertyPage from './pages/EditPropertyPage.jsx';
 import CreatePropertyPage from './pages/CreatePropertyPage.jsx';
 import './index.css';
 import Register from './components/Register.jsx';
+import Login from './components/Login.jsx';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register />
+      },
+      {
+        path: '/login',
+        element: <Login />
       }
     ],
   },

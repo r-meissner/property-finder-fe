@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [accountData, setAccountData] = useState({
@@ -7,6 +8,8 @@ const Register = () => {
     email: '',
     password: '',
   });
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -28,6 +31,7 @@ const Register = () => {
         }
     }
     sendAccount();
+    navigate('/login');
   };
 
   const handleChange = (e) => {
