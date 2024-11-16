@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 const Hero = () => {
   return (
     <div className='relative min-h-[600px] flex items-center justify-center'>
-      {/* Background Image */}
+      {/* background image */}
       <div
         className='absolute inset-0 z-0'
         style={{
@@ -16,7 +16,7 @@ const Hero = () => {
         <div className='absolute inset-0 bg-black/50' />
       </div>
 
-      {/* Content */}
+      {/* content */}
       <div className='container mx-auto px-4 z-10 text-center'>
         <h1 className='text-4xl md:text-6xl font-bold text-white mb-6'>
           Find Your Dream Property
@@ -26,7 +26,7 @@ const Hero = () => {
         </p>
         <SearchBar />
 
-        {/* Quick Stats */}
+        {/* quick stats */}
         <div className='grid grid-cols-3 gap-4 mt-16 max-w-3xl mx-auto'>
           {[
             { label: 'Properties', value: '10,000+' },

@@ -48,7 +48,7 @@ const Footer = () => {
             <ul className='space-y-2'>
               <li>123 Real Estate Street</li>
               <li>Property City, PC 12345</li>
-              <li>Phone: (123) 456-7890</li>
+              <li>Phone: (+49) 2245-678-90</li>
               <li>Email: info@nestfinder.com</li>
             </ul>
           </div>
