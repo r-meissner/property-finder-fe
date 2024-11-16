@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-base-100;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+}
+
+/* Custom styles for search components */
+.search-input-focus {
+  @apply ring-2 ring-primary ring-offset-2;
+}
+
+/* Smooth transitions */
+.btn, .badge, .input {
+  @apply transition-all duration-200;
+}
