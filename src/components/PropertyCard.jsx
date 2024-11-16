@@ -1,8 +1,10 @@
 import React from 'react'
 
-const PropertyCard = () => {
+const PropertyCard = ({ property}) => {
   return (
-    <div>PropertyCard</div>
+    <div>
+      
+    </div>
   )
 }
 

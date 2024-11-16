@@ -1,8 +1,11 @@
 import React from 'react'
+import PropertyList from './components/PropertyList'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <PropertyList />
+    </div>
   )
 }
 
