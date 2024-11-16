@@ -9,7 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PropertyDetailPage from './pages/PropertyDetailPage';
 import EditPropertyPage from './pages/EditPropertyPage.jsx';
-import ListPropertyPage from './pages/ListPropertyPage.jsx';
+import CreatePropertyPage from './pages/CreatePropertyPage.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -36,7 +36,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/new-property',
-        element: <ListPropertyPage />,
+        element: <CreatePropertyPage />,
       },
       {
         path: '/contact',
