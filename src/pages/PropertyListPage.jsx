@@ -1,8 +1,11 @@
 import React from 'react'
+import PropertyList from '../components/PropertyList'
 
 const PropertyListPage = () => {
   return (
-    <div>PropertyListPage</div>
+    <div>
+      <PropertyList />
+    </div>
   )
 }
 
