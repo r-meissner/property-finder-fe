@@ -1,11 +1,15 @@
-import React from 'react'
+import { Link } from 'react-router-dom';
 
-const PropertyCard = ({ property}) => {
+const PropertyCard = ({ property }) => {
   return (
-    <div>
-      
-    </div>
+  <div>
+    <h1>{property.title}</h1>
+    <p>{property.type}</p>
+    <p>{property.price}</p>
+    <p>{property.description}</p>
+    <button><Link to={`/properties/${property._id}`}>See More</Link></button>
+  </div>
   )
-}
+};
 
-export default PropertyCard
+export default PropertyCard;

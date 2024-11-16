@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import PropertyCard from './PropertyCard';
 
 const PropertyList = () => {
   const [properties, setProperties] = useState([]);
@@ -25,8 +26,12 @@ const PropertyList = () => {
   }, [])
   
   
-  return <div>
-
+  return <div className='grid grid-cols-3 gap-4'>
+    {properties.map((property) => {
+      return (
+        <PropertyCard key={property._id} property={property} />
+      )
+    })}
   </div>;
 };
 
