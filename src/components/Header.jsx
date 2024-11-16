@@ -28,6 +28,9 @@ const Header = () => {
               <Link to='/properties'>Properties</Link>
             </li>
             <li>
+              <Link to='/register'>Register</Link>
+            </li>
+            <li>
               <Link to='/aboutus'>About</Link>
             </li>
             <li>

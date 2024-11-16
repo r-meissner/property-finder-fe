@@ -9,6 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import PropertyDetailPage from './pages/PropertyDetailPage';
 import './index.css';
+import Register from './components/Register.jsx';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
         path: '/aboutus',
         element: <AboutPage />,
       },
+      {
+        path: '/register',
+        element: <Register />
+      }
     ],
   },
 ]);
