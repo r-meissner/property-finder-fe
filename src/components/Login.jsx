@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [account, setAccount] = useState({
         email: '',
         password: ''
     })
+
+    const navigate = useNavigate();
 
     const handleSubmit = () => {
         const thisAccount = {...account};
@@ -14,13 +17,14 @@ const Login = () => {
                 const res = await fetch(import.meta.env.VITE_API_URL+"auth/login", {
                     method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify(thisAccount)
                 })
                 const data = await res.json();
                 console.log(data);
+                localStorage.setItem('token',JSON.stringify(data.data.token));
+                navigate("/");
             } catch (error) {
                 console.log("Error logging in: ", error)
             }
@@ -48,7 +52,7 @@ const Login = () => {
           name='email'
           id='email'
           onChange={(e) => handleChange(e)}
-          value={accountData.email}
+          value={account.email}
         />
         <label htmlFor='password'>Password</label>
         <input
@@ -56,7 +60,7 @@ const Login = () => {
           name='password'
           id='password'
           onChange={(e) => handleChange(e)}
-          value={accountData.password}
+          value={account.password}
         />
         <button type='submit'>Login</button>
       </form>

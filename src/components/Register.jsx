@@ -24,14 +24,14 @@ const Register = () => {
                 body: JSON.stringify(newAccount)
             })
             const data = await res.json();
-            //console.log(data);
-            localStorage.setItem(JSON.stringify(data.token))
+            console.log(data);
+            localStorage.setItem('token',JSON.stringify(data.data.token))
+        navigate('/')
         } catch (error) {
             console.log("Error posting account: ", error);
         }
     }
     sendAccount();
-    navigate('/login');
   };
 
   const handleChange = (e) => {
