@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from 'react-leaflet';
 import {
   Home,
   Building2,
@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 import { divIcon } from 'leaflet';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // create custom marker icons with theme-aware design
@@ -202,35 +202,55 @@ const PropertyPopup = ({ property, onClose }) => {
   );
 };
 
+const RecenterAutomatically = ({lat,lng}) => {
+ const map = useMap();
+  useEffect(() => {
+    map.setView([lat, lng]);
+  }, [lat, lng]);
+  return null;
+}
+
 const Map = ({ size = 'large' }) => {
-  const [properties] = useState([
-    {
-      id: 1,
-      lat: 51.505,
-      lng: -0.09,
-      price: '$350k',
-      title: 'Modern Apartment with City View',
-      type: 'Apartment',
-      bedrooms: 2,
-      bathrooms: 1,
-      area: '1,200',
-      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500',
-      images: [
-        'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=500',
-        'https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=500',
-      ],
-      amenities: ['Parking', 'Pool', 'Gym'],
-      status: 'For Sale',
-      rating: 4.8,
-      reviews: 24,
-      agent: {
-        name: 'Jane Cooper',
-        phone: '+1 234 567 890',
-        image: 'https://randomuser.me/api/portraits/women/1.jpg',
-      },
-    },
-    // Add more properties here...
-  ]);
+  const [loading, setLoading] = useState(false);
+  const [properties, setProperties] = useState([]);
+
+  useEffect(() => {
+    let ignore = false;
+
+    const getAllProperties = async () => {
+      try {
+        setLoading(true);
+        const res = await fetch(import.meta.env.VITE_API_URL + "properties");
+        const data = await res.json();
+
+        if (!ignore) {
+          setProperties(data.properties.map(property => {
+            property.lng = property.location.coordinates[0] || '';
+            property.lat = property.location.coordinates[1] || '';
+            property.amenities = [];
+            property.agent = {};
+            property.rating = Math.random() * 5;
+            property.reviews = Math.random() * 100;
+            property.bedrooms = '';
+            property.bathrooms = '';
+            property.area = '';
+
+            return property;
+          }));
+        }
+      } catch (error) {
+        console.error("Error fetching properties: ", error);
+        setError("Failed to load properties. Please try again later.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    getAllProperties();
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   const sizeClasses = {
     large: 'h-[700px] w-full rounded-2xl',
@@ -254,7 +274,7 @@ const Map = ({ size = 'large' }) => {
 
         {properties.map((property) => (
           <Marker
-            key={property.id}
+            key={property._id}
             position={[property.lat, property.lng]}
             icon={createCustomIcon(property.type, property.price)}
           >
@@ -263,6 +283,7 @@ const Map = ({ size = 'large' }) => {
             </Popup>
           </Marker>
         ))}
+        <RecenterAutomatically lat={properties[0]?.lat || 51.505} lng={properties[0]?.lng || -0.09} />
       </MapContainer>
     </div>
   );

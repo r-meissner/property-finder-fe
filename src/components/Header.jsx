@@ -61,10 +61,10 @@ const Header = () => {
           </button>
 
           <Link
-            to='/properties/create'
+            to='/new-property'
             className='btn btn-primary hidden md:flex'
           >
-            List Property
+            New Property
           </Link>
 
           {/* Mobile Menu Button */}
@@ -96,11 +96,11 @@ const Header = () => {
               ))}
               <li>
                 <Link
-                  to='/properties/create'
+                  to='/new-property'
                   className='btn btn-primary w-full mt-2'
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  List Property
+                  New Property
                 </Link>
               </li>
             </ul>
