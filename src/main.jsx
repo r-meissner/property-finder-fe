@@ -13,6 +13,7 @@ import PropertyListPage from './pages/PropertyListPage.jsx';
 const router = createBrowserRouter([
   {
     path: '/',
+    element: <Layout />,
     errorElement: <ErrorPage />,
     children: [
       {
