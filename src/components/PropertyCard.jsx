@@ -28,7 +28,7 @@ const PropertyCard = ({ property }) => {
           </h2>
           <div className='flex items-center gap-1 text-base-content/70'>
             <MapPin className='h-4 w-4' />
-            <span className='text-sm'>{property.location}</span>
+            <span className='text-sm'>{property.location?.coordinates[1]},{property.location?.coordinates[0]}</span>
           </div>
         </div>
 
