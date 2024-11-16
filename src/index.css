@@ -19,12 +19,281 @@
   }
 }
 
+.property-hero::before {
+    content: "";
+    background-color: rgba(61, 100, 140, .6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    height: 100%;
+}
+
+h1 {
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 70px;
+    letter-spacing: .01em;
+    text-transform: uppercase;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
 /* Custom styles for search components */
 .search-input-focus {
   @apply ring-2 ring-primary ring-offset-2;
 }
 
 /* Smooth transitions */
-.btn, .badge, .input {
+.btn,
+.badge,
+.input {
   @apply transition-all duration-200;
+}
+
+/* Map specific styles */
+.leaflet-container {
+  @apply rounded-xl;
+}
+
+.property-popup .leaflet-popup-content-wrapper {
+  @apply rounded-xl shadow-lg;
+}
+
+.property-popup .leaflet-popup-content {
+  @apply m-0;
+}
+
+.property-popup .leaflet-popup-close-button {
+  @apply top-2 right-2;
+}
+
+/* Ensure the map controls have proper z-index */
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 400 !important;
+}
+
+/* Custom Marker Styles */
+.custom-marker {
+  background: transparent;
+  border: none;
+}
+
+.marker-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.marker-icon:hover {
+  transform: scale(1.1);
+}
+
+/* Popup Styles */
+.property-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  overflow: hidden;
+  @apply rounded-xl shadow-xl;
+}
+
+.property-popup .leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+}
+
+.property-popup .leaflet-popup-close-button {
+  @apply top-2 right-2 z-10 text-white;
+}
+
+.property-popup .leaflet-popup-tip {
+  @apply bg-base-100;
+}
+
+/* Ensure images don't overflow */
+.property-popup img {
+  @apply object-cover;
+}
+
+/* Enhanced Marker Styles */
+.marker-container {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  transform-origin: bottom center;
+}
+
+.marker-icon {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  background-color: burlywood;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  transition: all 0.3s ease;
+}
+
+.price-tag {
+  background-color: #483ea3;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 4px;
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(0 0 0 / 0.1);
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.marker-icon:hover {
+  transform: translateX(-50%) scale(1.1);
+}
+
+.marker-icon:hover .price-tag {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.marker-icon:hover .icon-wrapper {
+  background-color: #483ea3;
+}
+
+/* Enhanced Popup Styles */
+.property-popup .leaflet-popup-content-wrapper {
+  padding: 0;
+  overflow: hidden;
+  @apply rounded-xl shadow-2xl border border-base-200;
+}
+
+.property-popup .leaflet-popup-content {
+  margin: 0;
+  width: auto !important;
+}
+
+.property-popup .leaflet-popup-close-button {
+  @apply top-2 right-2 z-10 text-white bg-black/20 rounded-full w-6 h-6 flex items-center justify-center hover:bg-black/40 transition-colors;
+}
+
+.property-popup .leaflet-popup-tip {
+  @apply bg-base-100;
+}
+
+/* Map Controls */
+.leaflet-control-zoom {
+  @apply border-none shadow-lg rounded-lg overflow-hidden;
+}
+
+.leaflet-control-zoom a {
+  @apply bg-base-100 text-base-content border-none hover:bg-base-200 transition-colors;
+}
+
+/* Add these to your existing Map styles */
+.property-popup .leaflet-popup-content-wrapper {
+  @apply p-0 rounded-xl shadow-2xl border border-base-200 bg-base-100;
+}
+
+.property-popup .leaflet-popup-content {
+  @apply m-0;
+}
+
+.property-popup .leaflet-popup-close-button {
+  @apply top-2 right-2 z-10 text-base-100 bg-base-300/20 rounded-full w-6 h-6 flex items-center justify-center hover:bg-base-300/40 transition-colors;
+}
+
+.property-popup .leaflet-popup-tip {
+  @apply bg-base-100 border border-base-200;
+}
+
+.marker-container {
+  @apply relative transform transition-transform duration-300 hover:scale-110;
+}
+
+.marker-icon {
+  @apply relative flex items-center justify-center transition-all duration-300;
+}
+
+/* Ensure the map controls have proper z-index and styling */
+.leaflet-control-zoom {
+  @apply border-none shadow-lg rounded-lg overflow-hidden;
+}
+
+.leaflet-control-zoom a {
+  @apply bg-base-100 text-base-content border-none hover:bg-base-200 transition-colors;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 400 !important;
+}
+
+/* Update the marker styles */
+.marker-container {
+  @apply relative transform transition-transform duration-300;
+}
+
+.marker-container:hover {
+  @apply scale-110 z-50;
+}
+
+.marker-icon {
+  @apply relative flex items-center justify-center transition-all duration-300;
+}
+
+.price-tag {
+  @apply z-50;
+}
+
+/* Update popup styles */
+.property-popup .leaflet-popup-content-wrapper {
+  @apply p-0 rounded-xl shadow-2xl border border-base-200 bg-base-100;
+  max-width: 380px !important;
+}
+
+.property-popup .leaflet-popup-content {
+  @apply m-0 w-full;
+}
+
+.property-popup .leaflet-popup-close-button {
+  @apply top-2 right-2 z-10 text-white bg-black/50 hover:bg-black/70 rounded-full w-6 h-6 flex items-center justify-center transition-colors;
+}
+
+.property-popup .leaflet-popup-tip {
+  @apply bg-base-100 border border-base-200;
+}
+
+/* Ensure proper z-indexing */
+.leaflet-popup {
+  @apply z-[1000];
+}
+
+.leaflet-map-pane {
+  @apply z-[400];
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  @apply z-[1000];
 }
