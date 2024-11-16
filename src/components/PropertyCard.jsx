@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const PropertyCard = () => {
-  return (
-    <div>PropertyCard</div>
-  )
-}
+  return <div>PropertyCard</div>;
+};
 
-export default PropertyCard
+export default PropertyCard;

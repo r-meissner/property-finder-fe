@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const EditProperty = () => {
-  return (
-    <div>EditProperty</div>
-  )
-}
+  return <div>EditProperty</div>;
+};
 
-export default EditProperty
+export default EditProperty;
