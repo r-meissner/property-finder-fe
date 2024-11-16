@@ -1,7 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
+import ErrorPage from './pages/ErrorPage.jsx';
+import PropertyListPage from './pages/PropertyListPage.jsx';
 
 // Import components
 import Layout from './components/Layout';
@@ -29,6 +32,6 @@ const App = () => {
 // Render the app
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 );
